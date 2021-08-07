@@ -1,0 +1,27 @@
+
+/* .main {
+    margin: 10px auto;
+    width: 80%;
+    position: relative;
+  } */
+  
+  .pagination {
+    margin: 10px auto;
+    /* width: 20%; */
+  }
+  
+  .btn {
+    background-color: cornflowerblue;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1em;
+    padding: 0.5em;
+    width: 3em;
+  }
+  
+  .pageClick {
+    padding: 5px;
+    margin: 5px;
+  }

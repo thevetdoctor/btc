@@ -1,5 +1,7 @@
 # Compiled JavaScript files
 api/lib/*
+api/src/schema/details.ts
+api/src/schema/data.ts
 
 # TypeScript v1 declaration files
 typings/

@@ -2,6 +2,8 @@ import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { graphqlHTTP } from 'express-graphql';
 import Schema from './schema/schema';
+import { data } from './schema/data';
+import { details } from './schema/details';
 
 // Declare the express app
 const app = express();
@@ -46,6 +48,8 @@ app.use(
 app.get('/', (req: any, res: any) =>
         res.status(StatusCodes.OK).send({
         message: 'Nuri makes life much better!',
+        blocksCount: data.length,
+        sampleDetail: Object.keys(details)
     })
 );
 
