@@ -1,0 +1,30 @@
+.header {
+    text-align: center;
+    color: rgb(148, 41, 41);
+    padding: 4.5em auto;
+    font-size: 2em;
+    background-color: rgb(73, 170, 165);
+    background-color: rgb(18, 29, 51);
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    top: 0;
+}
+
+.header span {
+    margin-left: 3em;
+}
+.btc {
+    height: 40vmin;
+    pointer-events: none;    
+    animation: logo-spin infinite 10s linear;
+  }
+
+@keyframes logo-spin {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
