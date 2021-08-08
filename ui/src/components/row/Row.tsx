@@ -1,10 +1,13 @@
 import React from 'react';
+import {IBlock} from '../types';
 import './row.css';
-import {IBlock} from '../board/Board';
 
-export default function Row({hash, time, block_index, height, rowClass, even}: IBlock) {
+export default function Row({hash, time, height, rowClass, even, onClick}: IBlock) {
     return (
-        <div className={`row ${rowClass} ${!even ? 'even': ''}`}>
+        <div 
+            className={`row ${rowClass} ${!even ? 'even': ''}`}
+            onClick={onClick}
+        >
             <span className='main-span'>
                 {hash}
             </span>

@@ -8,8 +8,11 @@
     padding: 0.6em 0 0.6em 0;
     color: #575763;
     border-radius: 0.2em;
-    width: 100%;
+    /* width: 100%; */
     box-shadow: inset 0px -1px 0px rgba(183, 183, 183, 0.25);
+}
+.row:hover {
+    cursor: pointer;
 }
 .even {
     /* background-color: dimgray; */
@@ -24,18 +27,18 @@
     align-items: flex-start;
 }
 .main-span {
-    flex: 4;
+    flex: 3;
     /* width: 15em; */
     display: flex;
     flex-flow: column;
     align-items: center;
 }
 .row-heading {
-    color: #899198;
+    /* background-color: #899198; */
     font-weight: bold;
     font-size: 1.2em;
     text-transform: uppercase;
-    background-color: dimgray;
+    color: dimgray;
     margin-bottom: -1em;
 }
 .high {
