@@ -1,10 +1,10 @@
  .board {
      width: 90vw;
-     margin: 1em auto;
+     margin: 2em auto;
      font-size: 0.5em;
      font-family: 'Open Sans', sans-serif;     
      border-radius: 0.5em;
-     height: 80vh;
+     height: 95vh;
     }
 .no-repo {
     font-size: 1.5em;

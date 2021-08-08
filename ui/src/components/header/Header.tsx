@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaBtc } from 'react-icons/fa';
+import './header.css';
 
 export default function Header() {
     return (
@@ -7,9 +8,10 @@ export default function Header() {
             <span className='btc'>
                 <FaBtc />
             </span>
+            <h3>
                 Nuri
-              
-            <span>
+            </h3>
+            <span className='header-small'>
                 Get the best of both worlds!!!
             </span>
         </div>

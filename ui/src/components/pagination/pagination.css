@@ -14,14 +14,23 @@
     background-color: cornflowerblue;
     color: black;
     font-weight: bold;
-    border-radius: 10px;
     border: none;
-    font-size: 1.1em;
-    padding: 0.5em;
-    width: 3em;
+    /* font-size: 1.1em; */
+    padding: 0.45em;
+    /* width: 3em; */
   }
-  
+  .prev {
+    border-radius: 0.4em 0 0 0.4em;
+  }
+  .next {
+    border-radius: 0 0.4em 0.4em 0;
+  }
   .pageClick {
     padding: 5px;
-    margin: 5px;
+    color: rgb(243, 241, 241);
+    /* margin: 5px; */
+    background-color: cornflowerblue;
+  }
+  .btn:disabled {
+    background-color: dimgrey;
   }
