@@ -9,6 +9,25 @@
 .no-repo {
     font-size: 1.5em;
     color: #9696a0;    
-    font-family: 'Quicksand', sans-serif;    
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
     /* font-family: 'Open Sans', sans-serif;    box-shadow: 0.3em 0.3em 0.2em rgb(210, 214, 214); */
+}
+.no-data {
+    display: flex;
+}
+.refresh {
+    background-color: dimgrey;
+    border-radius: 0.3em;
+    width: 4em;
+    align-self: center;
+    font-size: 0.7em;
+    padding: 0.2em;
+    color: #fff;
+}
+.refresh:hover {
+    cursor: pointer;
+    color: rgb(206, 200, 200);
 }

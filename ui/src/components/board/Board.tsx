@@ -48,6 +48,7 @@ export default function Board(props: any): JSX.Element {
     };
 
     const getBlockDetails = async(hash: string) => {
+      setLoading(true);
       if(!hash) {
           return;
         }
@@ -73,15 +74,28 @@ export default function Board(props: any): JSX.Element {
             }
           }
         }`;
-        const url = `${apiUrl}graphql?${query}`;
-        const res = await axios({
-        method: 'POST',
-        url,
-        headers: {'Content-Type': 'application/graphql'}
-        });   
-        if(res.data.data.details) {
-          setBlockDetailsData(res.data.data.details);
-        }
+
+        try {
+            const url = `${apiUrl}graphql?${query}`;
+            const res = await axios({
+            method: 'POST',
+            url,
+            headers: {'Content-Type': 'application/graphql'}
+            });
+            console.log('getting data');
+            if(res.data.data.details) {
+              setBlockDetailsData(res.data.data.details);
+
+              setLoading(false);
+            } else {
+              setLoading(false);
+              console.log('no block details found');
+            }
+          } catch(e) {
+            setError(e.message);
+            console.log(e.message);
+            setLoading(false);
+          }
     };
 
     const fetchData = async() => {
@@ -180,7 +194,7 @@ export default function Board(props: any): JSX.Element {
                             </Fragment>
                             :
                             <Fragment>
-                              <div className='no-data'>
+                              <div className='no-repo'>
                                 No data available
                               </div>
                             </Fragment>
@@ -199,14 +213,29 @@ export default function Board(props: any): JSX.Element {
             </Fragment>
           :
           <Fragment>
-            {blockDetailsData ?
-            <Detail
-              size={blockDetailsData?.size}
-              block_index={blockDetailsData?.block_index}
-              prev_block={blockDetailsData?.prev_block}
-              tx={blockDetailsData?.tx}
-              handleDisplay={handleDisplay}
-            />
+            {!loading ?
+              <Fragment>
+                
+                {blockDetailsData ?
+                <Detail
+                size={blockDetailsData?.size}
+                block_index={blockDetailsData?.block_index}
+                prev_block={blockDetailsData?.prev_block}
+                tx={blockDetailsData?.tx}
+                handleDisplay={handleDisplay}
+                />
+                :
+                <Fragment>
+                  <div className='no-repo'>
+                    No data available
+                    <p 
+                      className='refresh' 
+                      onClick={() => setDisplayBlock(false)}>
+                        Go Back
+                    </p>
+                  </div>
+                </Fragment>}
+              </Fragment>
             :
             <>
                <Loader 
@@ -215,7 +244,6 @@ export default function Board(props: any): JSX.Element {
                 height={40} 
                 width={40} 
               />
-              {/* Block details loading ... */}
             </>}
           </Fragment>
         }
