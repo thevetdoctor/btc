@@ -18,6 +18,7 @@
     /* font-size: 1.1em; */
     padding: 0.45em;
     /* width: 3em; */
+    cursor: pointer;
   }
   .prev {
     border-radius: 0.4em 0 0 0.4em;
@@ -33,4 +34,5 @@
   }
   .btn:disabled {
     background-color: dimgrey;
+    cursor: auto;
   }

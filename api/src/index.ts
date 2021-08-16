@@ -4,6 +4,14 @@ import { graphqlHTTP } from 'express-graphql';
 import Schema from './schema/schema';
 import { data } from './schema/data';
 import { details } from './schema/details';
+import path from 'path';
+import randomId from 'oba-random-id';
+
+console.log(randomId(10, 'numeric'));
+console.log(Math.sin(90 * (Math.PI / 180)));
+const str = `Smile ${String.fromCodePoint(0x1F600)}, you are on TV`;
+console.log(str);
+console.log('xxx'.replace(/(?:)/g, '_'));
 
 // Declare the express app
 const app = express();
@@ -43,15 +51,21 @@ app.use(
             }
         })(req, res)
     });
-    
+
+app.use(express.static(path.join(__dirname, '../../ui/build')));
+
 // Set home/default route
-app.get('/', (req: any, res: any) =>
+app.get('/home', (req: any, res: any) =>
         res.status(StatusCodes.OK).send({
         message: 'Nuri makes life much better!',
         blocksCount: data.length,
         sampleDetail: Object.keys(details)
     })
 );
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../ui/build', 'index.html'));
+});
 
 // Declare server port listen logic
 app.listen(port, () => console.log(`Server listening @ port: ${port}`));
